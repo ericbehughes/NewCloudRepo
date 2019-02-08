@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="AzureCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="5" osVersion="*" schemaVersion="2015-04.2.6">
+  <Role name="WebRole1">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="eric" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="MIIBnQYJKoZIhvcNAQcDoIIBjjCCAYoCAQAxggFOMIIBSgIBADAyMB4xHDAaBgNVBAMME1dpbmRvd3MgQXp1cmUgVG9vbHMCEHuNVdvAVUOjQSyzKfjw+eIwDQYJKoZIhvcNAQEBBQAEggEA3LiD0+29vrHmS/2kVJf+dJFAkQbI3bcFLOONyWJC01S1pnER5vR61lnYB5F3No2tQbyqH8zTr6fNJtnthaXabA0JMIaklJgsfxR1xzs5DrI8MItrs6bpzB0nufsXZMD6sMFg+n9TgrrVAiLT1jXlWLtU78PRul5wmRyKn0ctf2cbcJpZ+J8OFak4czwzc/Elb6zV3a3M1OZauTpxD6dv/Gza7+Dg3+dv7sDkDqINrOBGVU4MekJz1PxOvjxj/rexcOhuKluPnC4kE6maiF5o8Q05575XrwXGctXhd6oLH2/nTljWYaDbPfIWY9nGuImb6HRBTRCQP7poKY9vZ/aCbTAzBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECOMBK9mntgUOgBD2cSZu9cQNfwJnuZEjhpy/" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2020-02-08T23:59:59.0000000+07:00" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />
+      <Setting name="APPINSIGHTS_INSTRUMENTATIONKEY" value="3ee3bac9-8f7d-4041-b90e-675bf659a9fe" />
+    </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="4032139B7ED2FF8F95A87515E5A1883A92901019" thumbprintAlgorithm="sha1" />
+    </Certificates>
+  </Role>
+</ServiceConfiguration>
