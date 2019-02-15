@@ -22,13 +22,14 @@
     </Startup>
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
+      <Setting name="AllowedIps" />
     </ConfigurationSettings>
     <Endpoints>
       <InputEndpoint name="Endpoint1" protocol="http" port="80" />
     </Endpoints>
     <Contents>
       <Content destination=".\">
-        <SourceDirectory path="C:\Users\deniso\Documents\My Received Files\NewCloudRepo-master\NewCloudRepo-master\AzureCloudService\rcf\Release\WebRole1Content\" />
+        <SourceDirectory path="C:\Users\deniso\Documents\CloudSecurity\NewCloudRepo\NewCloudRepo-master\NewCloudRepo-master\AzureCloudService\rcf\Release\WebRole1Content\" />
       </Content>
     </Contents>
   </WebRole>

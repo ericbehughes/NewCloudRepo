@@ -22,14 +22,22 @@
     </Startup>
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
-      <Setting name="APPINSIGHTS_INSTRUMENTATIONKEY" />
+      <Setting name="AllowedIps" />
     </ConfigurationSettings>
     <Endpoints>
       <InputEndpoint name="Endpoint1" protocol="http" port="80" />
     </Endpoints>
+    <Imports>
+      <Import moduleName="RemoteAccess" />
+      <Import moduleName="RemoteForwarder" />
+      <Import moduleName="Diagnostics" />
+    </Imports>
     <Contents>
       <Content destination=".\">
-        <SourceDirectory path="C:\Users\deniso\Documents\NewCloudServiceProject\AzureCloudService\AzureCloudService\rcf\Debug\WebRole1Content\" />
+        <SourceDirectory path="C:\Users\deniso\Documents\CloudSecurity\NewCloudRepo\NewCloudRepo-master\NewCloudRepo-master\AzureCloudService\rcf\Debug\WebRole1Content\" />
+      </Content>
+      <Content destination=".\">
+        <SourceDirectory path="C:\Users\deniso\Documents\CloudSecurity\NewCloudRepo\NewCloudRepo-master\NewCloudRepo-master\AzureCloudService\ecf\WebRole1Content\" />
       </Content>
     </Contents>
   </WebRole>
