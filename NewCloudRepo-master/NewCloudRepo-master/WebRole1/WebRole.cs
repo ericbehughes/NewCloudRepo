@@ -16,9 +16,9 @@ namespace WebRole1
             // see the MSDN topic at https://go.microsoft.com/fwlink/?LinkId=166357.
             using (ServerManager serverManager = new ServerManager())
             {
-                //Configuration config = serverManager.GetWebConfiguration("WebRole1_IN_0_Web");
+                Configuration config = serverManager.GetWebConfiguration("WebRole1_IN_0_Web");
                 var siteName =RoleEnvironment.CurrentRoleInstance.Role.Name;
-               Configuration config = serverManager.GetWebConfiguration("Default Web Site", siteName);
+               //Configuration config = serverManager.GetWebConfiguration("Default Web Site", siteName);
                 ConfigurationSection ipSecuritySection = config.GetSection("system.webServer/security/ipSecurity");
                 ConfigurationElementCollection ipSecurityCollection = ipSecuritySection.GetCollection();
                 ConfigurationElement addElement = ipSecurityCollection.CreateElement("add");

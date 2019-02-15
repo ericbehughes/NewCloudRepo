@@ -30,14 +30,10 @@
     <Imports>
       <Import moduleName="RemoteAccess" />
       <Import moduleName="RemoteForwarder" />
-      <Import moduleName="Diagnostics" />
     </Imports>
     <Contents>
       <Content destination=".\">
         <SourceDirectory path="C:\Users\deniso\Documents\CloudSecurity\NewCloudRepo\NewCloudRepo-master\NewCloudRepo-master\AzureCloudService\rcf\Debug\WebRole1Content\" />
-      </Content>
-      <Content destination=".\">
-        <SourceDirectory path="C:\Users\deniso\Documents\CloudSecurity\NewCloudRepo\NewCloudRepo-master\NewCloudRepo-master\AzureCloudService\ecf\WebRole1Content\" />
       </Content>
     </Contents>
   </WebRole>
