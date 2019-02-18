@@ -10,6 +10,6 @@ echo Unlocking configuration for "IPv4 Address and Domain Restrictions" feature
 icacls %windir%\System32\inetsrv\Config\redirection.config /grant IIS_IUSRS:F
 icacls %windir%\System32\inetsrv\Config\administration.config /grant IIS_IUSRS:F
 icacls %windir%	\System32\inetsrv\Config\applicationHost.config /grant IIS_IUSRS:F
-icacls Web.Config /grant IIS_IUSR:F
+icacls Web.Config /grant IIS_IUSRS:F
 
 EXIT /B 0
