@@ -19,33 +19,7 @@ namespace WebRole1
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            using (ServerManager serverManager = new ServerManager())
-            {
-                Configuration config = serverManager.GetWebConfiguration("WebRole1_IN_0_Web");
-                var siteName = RoleEnvironment.CurrentRoleInstance.Role.Name;
-                //Configuration config = serverManager.GetWebConfiguration("Default Web Site", siteName);
-                ConfigurationSection ipSecuritySection = config.GetSection("system.webServer/security/ipSecurity");
-                ConfigurationElementCollection ipSecurityCollection = ipSecuritySection.GetCollection();
-                ConfigurationElement addElement = ipSecurityCollection.CreateElement("add");
-
-                //get allowed ips
-                var allowedIps = RoleEnvironment.GetConfigurationSettingValue("AllowedIps").Split(',');
-                foreach (var allowedIp in allowedIps)
-                {
-                    addElement["ipAddress"] = allowedIp;
-                    addElement["allowed"] = true;
-                    try
-                    {
-                        ipSecurityCollection.Add(addElement);
-                    }
-                    catch
-                    {
-
-                    }
-
-                }
-                serverManager.CommitChanges();
-            }
+            
         }
     }
 }

@@ -7,9 +7,9 @@ powershell -ExecutionPolicy Unrestricted -command "Install-WindowsFeature Web-IP
 echo Unlocking configuration for "IPv4 Address and Domain Restrictions" feature 
 %windir%\system32\inetsrv\AppCmd.exe unlock config -section:system.webServer/security/ipSecurity
 
-icacls D:\Windows\System32\inetsrv\Config\redirection.config /grant IIS_IUSRS:F
-icacls D:\Windows\System32\inetsrv\Config\administration.config /grant IIS_IUSRS:F
-icacls D:\Windows\System32\inetsrv\Config\applicationHost.config /grant IIS_IUSRS:F
-icacls \.Web.Config /grant IIS_IUSR:F
+icacls %windir%\System32\inetsrv\Config\redirection.config /grant IIS_IUSRS:F
+icacls %windir%\System32\inetsrv\Config\administration.config /grant IIS_IUSRS:F
+icacls %windir%	\System32\inetsrv\Config\applicationHost.config /grant IIS_IUSRS:F
+icacls Web.Config /grant IIS_IUSR:F
 
 EXIT /B 0
