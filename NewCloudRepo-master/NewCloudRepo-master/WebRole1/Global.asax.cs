@@ -34,7 +34,9 @@ namespace WebRole1
                 else if (RoleEnvironment.IsEmulated)
                 {
                     var roleName = RoleEnvironment.CurrentRoleInstance.Role.Name;
-                    allowedIps = RoleEnvironment.GetConfigurationSettingValue("AllowedIps").Split(',').ToList();
+                    allowedIps = RoleEnvironment.GetConfigurationSettingValue("AllowedIps")
+                        .Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries)
+                        .Select(mobile => mobile.Trim()).Where(s => s != string.Empty).ToList();
                     //TODO: find a way to get Default Web Site Dynamically
                     config = serverManager.GetWebConfiguration("Default Web Site", roleName);
                 }
