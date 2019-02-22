@@ -24,6 +24,7 @@ namespace WebRole1
                 var iisSiteName = System.Web.Hosting.HostingEnvironment.SiteName;
                 Configuration config = null;
                 List<string> allowedIps = new List<string>();
+                
                 // running webrole1
                 if (!RoleEnvironment.IsAvailable)
                 {
@@ -34,9 +35,10 @@ namespace WebRole1
                 else if (RoleEnvironment.IsEmulated)
                 {
                     var roleName = RoleEnvironment.CurrentRoleInstance.Role.Name;
+
                     allowedIps = RoleEnvironment.GetConfigurationSettingValue("AllowedIps")
                         .Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries)
-                        .Select(mobile => mobile.Trim()).Where(s => s != string.Empty).ToList();
+                        .Select(str => str.Trim()).Where(s => s != string.Empty).ToList();
                     //TODO: find a way to get Default Web Site Dynamically
                     config = serverManager.GetWebConfiguration("Default Web Site", roleName);
                 }
@@ -49,14 +51,18 @@ namespace WebRole1
                 }
 
                 ConfigurationSection ipSecuritySection = config.GetSection("system.webServer/security/ipSecurity");
-                ConfigurationElementCollection ipSecurityCollection = ipSecuritySection.GetCollection();
+                ConfigurationElementCollection ipSecurityCollection = ipSecuritySection.GetCollection();    
                 ipSecurityCollection.Clear();
                 allowedIps.Add("127.0.0.1");
                 foreach (var allowedIp in allowedIps)
                 {
                     ConfigurationElement addElement = ipSecurityCollection.CreateElement("add");
-                    addElement["ipAddress"] = allowedIp;
+                    var list = allowedIp.Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries)
+                        .Select(str => str.Trim()).Where(s => s != string.Empty).ToList();
+                    addElement["ipAddress"] = list[0];
                     addElement["allowed"] = true;
+                    if (list.Count > 1)
+                        addElement["subnetMask"] = list[1];
                     ipSecurityCollection.Add(addElement);
                 }
 
